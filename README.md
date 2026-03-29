@@ -553,7 +553,6 @@ This project follows atomic commits:
 ✅ Implement CRUD endpoints
 ✅ Add 2-second delay simulation
 ✅ Implement recurring task logic
-✅ Add drag-and-drop ordering
 ✅ Create Flutter project structure
 ✅ Implement Provider state management
 ✅ Add task list screen with ReorderableListView
