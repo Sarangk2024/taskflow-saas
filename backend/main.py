@@ -108,7 +108,6 @@ async def create_task(task: TaskCreate, db: Session = Depends(get_db)):
     return db_task
 
 @app.put("/tasks/{task_id}", response_model=Task)
-
 async def update_task(task_id: int, task: TaskUpdate, db: Session = Depends(get_db)):
     await simulate_delay()
     db_task = db.query(TaskDB).filter(TaskDB.id == task_id).first()
