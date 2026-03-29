@@ -49,6 +49,7 @@ class Task(TaskBase):
 
 app = FastAPI(title="Task Management API")
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
