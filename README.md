@@ -389,27 +389,6 @@ POST /tasks
   }
   ```
 
-## 🎬 Demo Video
-
-**[Upload your demo video here]**
-
-### Recording Instructions
-
-1. **Duration**: 60-90 seconds
-2. **Upload**: Google Drive with view access for `nilay@flodo.ai`
-3. **Content to demonstrate**:
-   - Complete CRUD workflow (Create, Read, Update, Delete)
-   - Search with text highlighting
-   - Filter by status
-   - Drag-and-drop reordering
-   - Recurring task (mark as Done, show new task created)
-   - Draft persistence (start task, close app, reopen)
-   - Task blocking feature
-   - 2-second delay with loading state
-4. **Technical decision** (explain one):
-   - Why Provider for state management
-   - How debouncing improves performance
-   - Optimistic UI updates for drag-and-drop
 
 ## 🧠 Technical Decisions
 
@@ -607,8 +586,5 @@ Created with ❤️ using:
 
 ---
 
-## 📞 Contact
-
-For questions about this implementation, please reach out to the assignment reviewers at Flodo AI.
 
 **Thank you for reviewing my submission!** 🙏
