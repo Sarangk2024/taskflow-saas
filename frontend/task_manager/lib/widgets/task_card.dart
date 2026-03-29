@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import '../models/task.dart';
 import './highlighted_text.dart';
 
+
 class TaskCard extends StatelessWidget {
   final Task task;
   final bool isBlocked;
