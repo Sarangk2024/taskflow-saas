@@ -127,6 +127,7 @@ async def update_task(task_id: int, task: TaskUpdate, db: Session = Depends(get_
     if old_status != "Done" and new_status == "Done" and db_task.is_recurring:
         if db_task.is_recurring == "Daily":
             new_due_date = db_task.due_date + timedelta(days=1)
+        
         elif db_task.is_recurring == "Weekly":
             new_due_date = db_task.due_date + timedelta(weeks=1)
         else:
