@@ -69,10 +69,12 @@ async def simulate_delay():
     await asyncio.sleep(2)
 
 @app.get("/")
+
 def read_root():
     return {"message": "Task Management API"}
 
 @app.get("/tasks", response_model=List[Task])
+
 def get_tasks(search: Optional[str] = None, status: Optional[str] = None, db: Session = Depends(get_db)):
     query = db.query(TaskDB)
     if search:
@@ -83,6 +85,7 @@ def get_tasks(search: Optional[str] = None, status: Optional[str] = None, db: Se
     return tasks
 
 @app.get("/tasks/{task_id}", response_model=Task)
+
 def get_task(task_id: int, db: Session = Depends(get_db)):
     task = db.query(TaskDB).filter(TaskDB.id == task_id).first()
     if not task:
@@ -90,6 +93,7 @@ def get_task(task_id: int, db: Session = Depends(get_db)):
     return task
 
 @app.post("/tasks", response_model=Task)
+
 async def create_task(task: TaskCreate, db: Session = Depends(get_db)):
     await simulate_delay()
     if task.blocked_by_id:
@@ -104,6 +108,7 @@ async def create_task(task: TaskCreate, db: Session = Depends(get_db)):
     return db_task
 
 @app.put("/tasks/{task_id}", response_model=Task)
+
 async def update_task(task_id: int, task: TaskUpdate, db: Session = Depends(get_db)):
     await simulate_delay()
     db_task = db.query(TaskDB).filter(TaskDB.id == task_id).first()
@@ -141,6 +146,7 @@ async def update_task(task_id: int, task: TaskUpdate, db: Session = Depends(get_
     return db_task
 
 @app.delete("/tasks/{task_id}")
+
 def delete_task(task_id: int, db: Session = Depends(get_db)):
     db_task = db.query(TaskDB).filter(TaskDB.id == task_id).first()
     if not db_task:
@@ -153,6 +159,7 @@ def delete_task(task_id: int, db: Session = Depends(get_db)):
     return {"message": "Task deleted successfully"}
 
 @app.put("/tasks/reorder")
+
 async def reorder_tasks(task_ids: List[int], db: Session = Depends(get_db)):
     for index, task_id in enumerate(task_ids):
         db_task = db.query(TaskDB).filter(TaskDB.id == task_id).first()
